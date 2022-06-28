@@ -53,8 +53,7 @@ Toolkit.run(async (tools) => {
       await exec('git', pullArgs);
 
       // version by strategy
-
-      await exec('npm', ['version', strategy, '--no-commit-hooks', '-m', `${commitMessage} %s`]);
+      await exec('yarn', ['run', 'version:patch'])
 
       const version = tools.getPackageJSON().version;
       core.info(`version is ${version}`);
